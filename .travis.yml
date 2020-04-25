@@ -12,8 +12,12 @@ branches:
   only:
     - master
 
+services:
+  - mysql  
+
 cache:
   directories:
+    - vendor
     - $HOME/.composer/cache
 
 matrix:

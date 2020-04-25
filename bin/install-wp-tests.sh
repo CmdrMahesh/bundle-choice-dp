@@ -154,7 +154,6 @@ install_wp
 install_test_suite
 install_db
 
-
 # curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar > wp
 # chmod +x wp
 # mv wp /tmp/wordpress/
