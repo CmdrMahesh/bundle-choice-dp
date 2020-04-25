@@ -162,4 +162,5 @@ echo "Moving composer.json"
 cp composer.json ${WP_CORE_DIR}
 composer install -d ${WP_CORE_DIR}
 #${WP_CORE_DIR}/wp plugin activate woocommerce
-# php /tmp/wordpress/wp plugin activate woocommerce
+#php /tmp/wordpress/wp plugin activate woocommerce
+php ${WP_CORE_DIR}/wp plugin activate woocommerce
