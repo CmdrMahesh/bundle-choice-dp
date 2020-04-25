@@ -20,10 +20,10 @@ env:
     - WP_CLI_BIN_DIR="$TRAVIS_BUILD_DIR/vendor/bin"
     - WP_VERSION=latest WP_MULTISITE=0
 
-matrix:
+jobs:
   include:
     - php: 7.2
-      env: WP_VERSION=latest
+      env: WP_VERSION=latest WP_MULTISITE=0 RUN_PHPCS=1
     #- php: 7.1
     #  env: WP_VERSION=latest
     #- php: 7.0
@@ -48,8 +48,7 @@ before_script:
     fi
   - |
     if [[ ! -z "$WP_VERSION" ]] ; then
-      bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
-      composer global require "phpunit/phpunit=5.*"
+      bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION      
     fi
   - |
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
