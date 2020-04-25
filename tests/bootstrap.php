@@ -28,7 +28,7 @@ require_once $_tests_dir . '/includes/functions.php';
  * Manually load the plugin being tested.
  */
 function _manually_load_plugin() {
-	global $_wp_dir;
+	$_wp_dir = rtrim( sys_get_temp_dir(), '/\\' ) . '/wordpress';
 	require_once $_wp_dir.'/wp-content/plugins/woocommerce/woocommerce.php';
 	require dirname( dirname( __FILE__ ) ) . '/woocommerce-bundle-choice.php';
 }
