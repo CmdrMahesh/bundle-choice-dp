@@ -154,13 +154,14 @@ install_wp
 install_test_suite
 install_db
 
+
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar > wp
 chmod +x wp
-mv wp ${WP_CORE_DIR}
+mv wp /tmp/wordpress/
 echo "Moving composer.json"
-# #composer config -g github-oauth.github.com $GIT_TOKEN
+composer config -g github-oauth.github.com $GIT_TOKEN
 cp composer.json ${WP_CORE_DIR}
 composer install -d ${WP_CORE_DIR}
-#${WP_CORE_DIR}/wp plugin activate woocommerce
-#php /tmp/wordpress/wp plugin activate woocommerce
-php ${WP_CORE_DIR}/wp plugin activate woocommerce
+echo "Installing dependency"
+composer global require "phpunit/phpunit=5.7.*|7.5.*"
+php /tmp/wordpress/wp plugin activate woocommerce

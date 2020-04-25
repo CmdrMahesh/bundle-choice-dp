@@ -1,16 +1,11 @@
 sudo: required
 dist: trusty
-
 language: php
 
 notifications:
   email:
     on_success: never
     on_failure: change
-
-branches:
-  only:
-    - master
 
 services:
   - mysql  
@@ -19,6 +14,11 @@ cache:
   directories:
     - vendor
     - $HOME/.composer/cache
+env:
+  global:
+    - PATH="$TRAVIS_BUILD_DIR/vendor/bin:$PATH"
+    - WP_CLI_BIN_DIR="$TRAVIS_BUILD_DIR/vendor/bin"
+    - WP_VERSION=latest WP_MULTISITE=0
 
 matrix:
   include:
