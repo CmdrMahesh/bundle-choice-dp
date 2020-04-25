@@ -1,5 +1,5 @@
 {    
     "require": {
-        "woocommerce/woocommerce": "^4.0"        
+        "woocommerce/woocommerce": "^3.8"        
     }   
 }
